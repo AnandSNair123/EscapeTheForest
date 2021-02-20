@@ -7,7 +7,8 @@ var gamestate, play = 0,
   firstlevel = 1,
   secondlevel = 2,
   gameover = 3,
-  win = 4,gameinst = 5;
+  win = 4,
+  gameinst = 5;
 var playAnimation, playing;
 var logo, logoAnimation;
 var lava, lavaAnimation;
@@ -23,8 +24,8 @@ var lavastate, lavalake = 0,
   lavanolake = 1;
 var lava1;
 var test;
-var instructions,instructionsAnimation,instructionswrittenAnimation;
-var back,backAnimation;
+var instructions, instructionsAnimation, instructionswrittenAnimation;
+var back, backAnimation;
 
 function preload() {
   playerStanding = loadAnimation("player5.png");
@@ -50,7 +51,7 @@ function preload() {
   instructionsAnimation = loadAnimation("instructionsbutton.png");
   instructionswrittenAnimation = loadAnimation("instruction.PNG");
   backAnimation = loadAnimation("back.png");
-  
+
 }
 
 function setup() {
@@ -61,7 +62,7 @@ function setup() {
   gameBackground.addAnimation("loadingscreen", loading);
   gameBackground.addAnimation("winning", youwin);
   gameBackground.addAnimation("over", youlose);
-  gameBackground.addAnimation("inst",instructionswrittenAnimation);
+  gameBackground.addAnimation("inst", instructionswrittenAnimation);
   gameBackground.scale = 2;
 
   player = createSprite(100, 490);
@@ -139,11 +140,11 @@ function setup() {
   restart = createSprite(50, 50);
   restart.addAnimation("restart", restartAnimation);
 
-  instructions = createSprite(700,400);
-  instructions.addAnimation("instructions",instructionsAnimation);
+  instructions = createSprite(700, 400);
+  instructions.addAnimation("instructions", instructionsAnimation);
 
-  back = createSprite(100,50);
-  back.addAnimation("back",backAnimation);
+  back = createSprite(100, 50);
+  back.addAnimation("back", backAnimation);
   back.visible = false;
   back.scale = 0.3;
 
@@ -155,22 +156,22 @@ function setup() {
 }
 
 function draw() {
-  if(mousePressedOver(back)){
+  if (mousePressedOver(back)) {
     gamestate = play;
     back.visible = false;
     logo.visible = true;
     playing.visible = true;
     instructions.visible = true;
   }
-  if(mousePressedOver(instructions)){
+  if (mousePressedOver(instructions)) {
     gamestate = gameinst;
     instructions.visible = false;
     playing.visible = false;
     logo.visible = false;
     player.visible = false;
   }
-  if(gamestate === gameinst){
-    gameBackground.changeAnimation("inst",instructionswrittenAnimation);
+  if (gamestate === gameinst) {
+    gameBackground.changeAnimation("inst", instructionswrittenAnimation);
     gameBackground.scale = 1.4;
     back.visible = true;
   }
@@ -237,6 +238,7 @@ function draw() {
     }
   }
   if (gamestate === firstlevel) {
+    levels.changeAnimation("level1", level1);
     instructions.visible = false;
     jump2.x = 1100;
     jump2.y = 410;
