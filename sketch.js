@@ -236,8 +236,6 @@ function draw() {
 
     }
   }
-  //console.log(portal.x);
-  //console.log(portal.y);
   if (gamestate === firstlevel) {
     instructions.visible = false;
     jump2.x = 1100;
@@ -345,9 +343,6 @@ function draw() {
       lava.visible = true;
       lavastate = lavalake;
       lava.y = 670;
-      console.log(lava.x);
-      console.log(lava.y);
-      console.log("working");
     }
     //if ( player.y<) {
     //lava.visible = true;
